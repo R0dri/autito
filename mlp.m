@@ -109,7 +109,7 @@ do
   err = uint16(err_abs*100./pics);
   disp(["Total error [rel]:  " num2str(err) "\t%"])
   %% Data Adjustment
-  adj = 1-err;
+  adj = 100-err;
   disp(["Ajuste a los Datos: " num2str(adj) "\t%"])
 
   disp("")
