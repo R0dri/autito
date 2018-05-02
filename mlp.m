@@ -46,13 +46,14 @@ do
   tic  % Set Runtime start
   for iter = 1:iterations
     for foto = 1:m
+
       %% Forward propagation
-      a_1=X(iter,:);
+      a_1=X(foto,:);
       Z_1=1./(1+exp(-weight_1*a_1'));
       a_2=[1 Z_1'];
       Z_2=1./(1+exp(-weight_2*a_2'));
 
-      e=out(iter,:)-Z_2';
+      e=out(foto,:)-Z_2';
       %% Back propagation
       %% errores de gradiente y correciones de peso
       e_grad_out=Z_2.*(1-Z_2).*e';
