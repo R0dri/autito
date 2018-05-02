@@ -72,6 +72,7 @@ do
   end
   tim = toc; % End of Runtime
 
+  clear iter
                                 % Results
   %% Test with forward
   YF=zeros(size(out));
@@ -92,7 +93,7 @@ do
   %% Runtime
   h = floor(tim/60/60);
   min = floor(tim/60)-h*60;
-  s = floor(tim-h*60*60-m*60);
+  s = floor(tim-h*60*60-min*60);
   disp(["Total run-time: " num2str(h) ":" num2str(min) "." num2str(s)])
   disp(["Output Count:   " num2str(sum(round(YF)))])
   disp(["Expected Count: " num2str(sum(Y))])
