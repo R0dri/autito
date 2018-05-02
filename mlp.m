@@ -42,6 +42,7 @@ do
   alpha=input("Set learning Rate (0.1): ");
   muestras = double(uint16(m/100)*100);
   disp("\n\nProgress[%]:")
+  YF = zeros(size(out));
                                 % Training
   tic  % Set Runtime start
   for iter = 1:iterations
@@ -52,6 +53,7 @@ do
       Z_1=1./(1+exp(-weight_1*a_1'));
       a_2=[1 Z_1'];
       Z_2=1./(1+exp(-weight_2*a_2'));
+      YF(foto,:) = Z_2;
 
       e=out(foto,:)-Z_2';
       %% Back propagation
@@ -69,6 +71,8 @@ do
         fprintf('%d ',progress);
       end
     end
+    err_abs = sum(abs(Y-YF>0.6));
+    disp(["Total error [ABS]: " num2str(err_abs)])
   end
   tim = toc; % End of Runtime
 
