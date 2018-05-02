@@ -69,10 +69,10 @@ do
       progress = ((iter-1)*muestras+foto)*100/(muestras*iterations);
       if(progress==floor(progress))
         fprintf('%d ',progress);
+        err_abs = sum(abs(Y-(YF>0.6)));
+        disp(["Total error [ABS]: " num2str(err_abs)])
       end
     end
-    err_abs = sum(abs(Y-YF>0.6));
-    disp(["Total error [ABS]: " num2str(err_abs)])
   end
   tim = toc; % End of Runtime
 
