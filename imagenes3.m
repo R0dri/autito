@@ -19,7 +19,7 @@ disp(["Izquierda: "  num2str(pics(1))])
 disp(["Adelante: "   num2str(pics(2))])
 disp(["Derecha: "    num2str(pics(3))])
 disp(["Retroceder: " num2str(pics(4))])
-save("pics.mat","pics");
+save("vars/pics.mat","pics");
 pics = [0 pics];
 
                                 % Create X
@@ -67,5 +67,5 @@ end
                                 % Save values
 disp("")
 disp("Everything done succesfully!, saving variabeles")
-save("X.mat","X")
-save("Y.mat","Y")
+save("vars/X.mat","X")
+save("vars/Y.mat","Y")
