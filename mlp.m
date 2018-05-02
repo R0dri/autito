@@ -69,24 +69,21 @@ do
       progress = ((iter-1)*muestras+foto)*100/(muestras*iterations);
       if(progress==floor(progress))
         fprintf('%d ',progress);
-        err_abs = sum(abs(Y-(YF>0.6)));
-        disp(["Total error [ABS]: " num2str(err_abs)])
       end
     end
   end
   tim = toc; % End of Runtime
 
-  clear iter
                                 % Results
   %% Test with forward
   YF=zeros(size(out));
-  for iter=1:m
+  for foto = 1:m
     %% Forward propagation
-    a_1=X(iter,:);
+    a_1=X(foto,:);
     Z_1=1./(1+exp(-weight_1*a_1'));
     a_2=[1 Z_1'];
     Z_2=1./(1+exp(-weight_2*a_2'));
-    YF(iter,:)=Z_2;
+    YF(foto,:) = Z_2;
   end
 
   disp("")
@@ -96,9 +93,9 @@ do
 
   %% Runtime
   h = floor(tim/60/60);
-  min = floor(tim/60)-h*60;
-  s = floor(tim-h*60*60-min*60);
-  disp(["Total run-time: " num2str(h) ":" num2str(min) "." num2str(s)])
+  mi = floor(tim/60)-h*60;
+  s = floor(tim-h*60*60-mi*60);
+  disp(["Total run-time: " num2str(h) ":" num2str(mi) "." num2str(s)])
   disp(["Output Count:   " num2str(sum(round(YF)))])
   disp(["Expected Count: " num2str(sum(Y))])
 
