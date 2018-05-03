@@ -53,7 +53,6 @@ do
       Z_1=1./(1+exp(-weight_1*a_1'));
       a_2=[1 Z_1'];
       Z_2=1./(1+exp(-weight_2*a_2'));
-      YF(foto,:) = Z_2;
 
       e=out(foto,:)-Z_2';
       %% Back propagation
