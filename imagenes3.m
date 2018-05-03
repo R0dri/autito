@@ -9,9 +9,17 @@ path = "~/Downloads/train/"
 disp("")
 
 l = glob([path "Izquierda/*"] )(2:end-1); % Left
+l = [l; glob([path "Izquierda/extras/*"]  )(2:end-1)];
+
 f = glob([path "Adelante/*"]  )(2:end-1); % Front
+f = [f; glob([path "Adelante/extras/*"]   )(2:end-1)];
+
 r = glob([path "Derecha/*"]   )(2:end-1); % Right
+r = [r; glob([path "Derecha/extras/*"]    )(2:end-1)];
+
 b = glob([path "Retroceder/*"])(2:end-1); % Back
+b = [b; glob([path "Retroceder/extras/*"] )(2:end-1)];
+
 
 pics = [numel(l) numel(f) numel(r) numel(b)];
 disp("Numero de Muestras total:")
